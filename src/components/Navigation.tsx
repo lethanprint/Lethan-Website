@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import lethanLogo from '@/assets/lethan-logo.jpg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,8 +43,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3">
-            <img src="/placeholder.svg" alt="Lethan Logo" className="h-12 w-auto" />
-            <span className="text-xl font-bold text-primary">Lethan Garments & Prints</span>
+            <img src={lethanLogo} alt="Lethan Garments & Prints Logo" className="h-14 w-auto rounded-full" />
+            <span className="text-xl font-bold text-primary hidden sm:block">Lethan Garments & Prints</span>
           </Link>
 
           {/* Desktop Navigation */}
