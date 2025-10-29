@@ -52,14 +52,14 @@ const Navigation = () => {
             <Link to="/" className="nav-link text-foreground hover:text-primary transition-smooth">
               Home
             </Link>
-            <Link to="/about" className="nav-link text-foreground hover:text-primary transition-smooth">
+            <Link to="/about" className="nav-link text-foreground hover:text-secondary transition-smooth">
               About Us
             </Link>
             
             {/* Services Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center space-x-1 text-foreground hover:text-primary transition-smooth"
+                className="flex items-center space-x-1 text-foreground hover:text-secondary transition-smooth"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
@@ -122,14 +122,14 @@ const Navigation = () => {
                 <Link to="/" className="text-foreground hover:text-primary transition-smooth">
                   Home
                 </Link>
-                <Link to="/about" className="text-foreground hover:text-primary transition-smooth">
+                <Link to="/about" className="text-foreground hover:text-secondary transition-smooth">
                   About Us
                 </Link>
                 
                 <div>
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
-                    className="flex items-center justify-between w-full text-foreground hover:text-primary transition-smooth"
+                    className="flex items-center justify-between w-full text-foreground hover:text-secondary transition-smooth"
                   >
                     <span>Services</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
