@@ -60,6 +60,7 @@ const Clients = () => {
       <HeroSection 
         title="Our Valued Clients" 
         subtitle="Trusted by businesses across industries to deliver exceptional results"
+        backgroundImage="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1920&h=600&fit=crop"
       />
 
       <section className="py-20 bg-background">
@@ -73,39 +74,61 @@ const Clients = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 hover:shadow-elegant transition-all duration-300 border-2 hover:border-secondary">
+                <Card className="p-8 hover:shadow-elegant transition-all duration-500 border-2 hover:border-secondary relative overflow-hidden group hover:-translate-y-2">
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100"
+                    transition={{ duration: 0.5 }}
+                  />
                   {/* Client Logo and Name */}
-                  <div className="flex items-center space-x-4 mb-6">
-                    <motion.img 
-                      src={client.logo} 
-                      alt={`${client.name} logo`}
-                      className="w-16 h-16 rounded-full object-cover border-4 border-primary"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <h3 className="text-2xl font-bold text-primary">{client.name}</h3>
+                  <div className="flex items-center space-x-4 mb-6 relative z-10">
+                    <motion.div
+                      whileHover={{ scale: 1.15, rotate: [0, -5, 5, -5, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <img 
+                        src={client.logo} 
+                        alt={`${client.name} logo`}
+                        className="w-16 h-16 rounded-full object-cover border-4 border-primary group-hover:border-secondary transition-colors duration-300 shadow-lg"
+                      />
+                    </motion.div>
+                    <motion.h3 
+                      className="text-2xl font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+                      whileHover={{ x: 5 }}
+                    >
+                      {client.name}
+                    </motion.h3>
                   </div>
 
                   {/* Image Carousel */}
-                  <Carousel className="w-full">
+                  <Carousel className="w-full relative z-10">
                     <CarouselContent>
                       {client.images.map((image, imgIndex) => (
                         <CarouselItem key={imgIndex}>
-                          <div className="relative aspect-video overflow-hidden rounded-lg">
+                          <motion.div 
+                            className="relative aspect-video overflow-hidden rounded-lg border-2 border-transparent hover:border-secondary transition-colors duration-300"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.4 }}
+                          >
                             <motion.img
                               src={image}
                               alt={`${client.name} project ${imgIndex + 1}`}
                               className="w-full h-full object-cover"
-                              whileHover={{ scale: 1.05 }}
+                              initial={{ scale: 1 }}
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            />
+                            <motion.div 
+                              className="absolute inset-0 bg-gradient-to-t from-primary/40 via-secondary/20 to-transparent"
+                              initial={{ opacity: 0 }}
+                              whileHover={{ opacity: 1 }}
                               transition={{ duration: 0.3 }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                          </div>
+                          </motion.div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-2 bg-secondary text-secondary-foreground hover:bg-secondary/90" />
-                    <CarouselNext className="right-2 bg-secondary text-secondary-foreground hover:bg-secondary/90" />
+                    <CarouselPrevious className="left-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-110 transition-all duration-300 shadow-lg" />
+                    <CarouselNext className="right-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-110 transition-all duration-300 shadow-lg" />
                   </Carousel>
                 </Card>
               </motion.div>

@@ -47,11 +47,10 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
   };
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto h-[500px] overflow-hidden rounded-2xl shadow-elegant">
+    <div className="relative w-full max-w-5xl mx-auto h-[500px] overflow-hidden rounded-2xl shadow-elegant border-4 border-transparent hover:border-secondary transition-all duration-500">
       <AnimatePresence initial={false} custom={direction}>
-        <motion.img
+        <motion.div
           key={currentIndex}
-          src={images[currentIndex]}
           custom={direction}
           variants={slideVariants}
           initial="enter"
@@ -61,37 +60,57 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
             x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
-          className="absolute w-full h-full object-cover"
-          alt={`Service showcase ${currentIndex + 1}`}
-        />
+          className="absolute w-full h-full"
+        >
+          <motion.img
+            src={images[currentIndex]}
+            className="w-full h-full object-cover"
+            alt={`Service showcase ${currentIndex + 1}`}
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          />
+        </motion.div>
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <button
+      <motion.button
         onClick={() => paginate(-1)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary/80 hover:bg-primary text-primary-foreground p-3 rounded-full transition-smooth z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-secondary/90 hover:bg-secondary text-secondary-foreground p-3 rounded-full transition-all duration-300 z-10 hover:scale-110 shadow-lg"
+        whileHover={{ x: -5 }}
+        whileTap={{ scale: 0.9 }}
       >
         <ChevronLeft size={24} />
-      </button>
-      <button
+      </motion.button>
+      <motion.button
         onClick={() => paginate(1)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary/80 hover:bg-primary text-primary-foreground p-3 rounded-full transition-smooth z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-secondary/90 hover:bg-secondary text-secondary-foreground p-3 rounded-full transition-all duration-300 z-10 hover:scale-110 shadow-lg"
+        whileHover={{ x: 5 }}
+        whileTap={{ scale: 0.9 }}
       >
         <ChevronRight size={24} />
-      </button>
+      </motion.button>
 
       {/* Indicators */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
         {images.map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => {
               setDirection(index > currentIndex ? 1 : -1);
               setCurrentIndex(index);
             }}
-            className={`w-3 h-3 rounded-full transition-smooth ${
-              index === currentIndex ? 'bg-secondary scale-125' : 'bg-primary-foreground/50'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-secondary scale-125 shadow-lg' : 'bg-primary-foreground/50 hover:bg-primary-foreground/80'
             }`}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 0.8 }}
           />
         ))}
       </div>

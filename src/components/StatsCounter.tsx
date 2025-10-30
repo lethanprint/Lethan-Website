@@ -31,15 +31,20 @@ const StatsCounter = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+              className="text-center group"
             >
-              <Counter
-                end={stat.value}
-                duration={2}
-                suffix={stat.suffix}
-                inView={inView}
-              />
-              <p className="text-muted-foreground mt-2">{stat.label}</p>
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Counter
+                  end={stat.value}
+                  duration={2}
+                  suffix={stat.suffix}
+                  inView={inView}
+                />
+              </motion.div>
+              <p className="text-muted-foreground mt-2 group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -74,9 +79,19 @@ const Counter = ({ end, duration, suffix = '', inView }: { end: number; duration
   }, [end, duration, inView]);
 
   return (
-    <div className="text-5xl font-bold text-primary">
+    <motion.div 
+      className="text-5xl font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+      animate={{ 
+        textShadow: [
+          '0 0 10px hsl(223 93% 23% / 0.2)',
+          '0 0 20px hsl(37 90% 53% / 0.3)',
+          '0 0 10px hsl(223 93% 23% / 0.2)',
+        ]
+      }}
+      transition={{ duration: 2, repeat: Infinity }}
+    >
       {count}{suffix}
-    </div>
+    </motion.div>
   );
 };
 

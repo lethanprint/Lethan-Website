@@ -42,67 +42,107 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-3">
-            <img src={lethanLogo} alt="Lethan Garments & Prints Logo" className="h-14 w-auto rounded-full" />
-            <span className="text-xl font-bold text-primary hidden sm:block">Lethan Garments & Prints</span>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <motion.img 
+              src={lethanLogo} 
+              alt="Lethan Garments & Prints Logo" 
+              className="h-14 w-auto rounded-full border-2 border-transparent group-hover:border-secondary transition-all duration-300"
+              whileHover={{ rotate: [0, -5, 5, -5, 0], scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            />
+            <motion.span 
+              className="text-xl font-bold text-primary hidden sm:block group-hover:text-secondary transition-colors duration-300"
+              whileHover={{ x: 5 }}
+            >
+              Lethan Garments & Prints
+            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="nav-link text-foreground hover:text-primary transition-smooth">
-              Home
-            </Link>
-            <Link to="/about" className="nav-link text-foreground hover:text-secondary transition-smooth">
-              About Us
-            </Link>
+            <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400 }}>
+              <Link to="/" className="nav-link text-foreground hover:text-primary transition-smooth relative group">
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400 }}>
+              <Link to="/about" className="nav-link text-foreground hover:text-secondary transition-smooth relative group">
+                About Us
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </motion.div>
             
             {/* Services Dropdown */}
             <div className="relative group">
-              <button
-                className="flex items-center space-x-1 text-foreground hover:text-secondary transition-smooth"
+              <motion.button
+                className="flex items-center space-x-1 text-foreground hover:text-secondary transition-smooth relative"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 <span>Services</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
+                <motion.div
+                  animate={{ rotate: servicesOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </motion.div>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
+              </motion.button>
               
               <AnimatePresence>
                 {servicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-card rounded-lg shadow-elegant overflow-hidden"
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-48 bg-card rounded-lg shadow-elegant overflow-hidden border-2 border-secondary/20"
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     {services.map((service, index) => (
-                      <Link
+                      <motion.div
                         key={service.path}
-                        to={service.path}
-                        className="block px-4 py-3 text-foreground hover:bg-primary hover:text-primary-foreground transition-smooth"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
                       >
-                        {service.name}
-                      </Link>
+                        <Link
+                          to={service.path}
+                          className="block px-4 py-3 text-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 border-l-4 border-transparent hover:border-primary"
+                        >
+                          {service.name}
+                        </Link>
+                      </motion.div>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link to="/clients" className="nav-link text-foreground hover:text-secondary transition-smooth">
-              Clients
-            </Link>
+            <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400 }}>
+              <Link to="/clients" className="nav-link text-foreground hover:text-secondary transition-smooth relative group">
+                Clients
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </motion.div>
 
-            <Link to="/contact" className="nav-link text-foreground hover:text-primary transition-smooth">
-              Contact
-            </Link>
+            <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400 }}>
+              <Link to="/contact" className="nav-link text-foreground hover:text-primary transition-smooth relative group">
+                Contact
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </motion.div>
 
             <Link to="/contact">
-              <Button variant="default" size="lg" className="gradient-accent shadow-glow hover:scale-105 transition-transform">
-                Get Quote
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="default" size="lg" className="gradient-accent shadow-glow hover:shadow-xl transition-all duration-300 animate-pulse-glow">
+                  Get Quote
+                </Button>
+              </motion.div>
             </Link>
           </div>
 

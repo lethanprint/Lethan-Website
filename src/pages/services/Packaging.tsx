@@ -19,7 +19,8 @@ const Packaging = () => {
 
       <HeroSection 
         title="Custom Packaging Solutions"
-        backgroundImage="https://images.unsplash.com/photo-1638646201197-07bdd9dfa145?w=1920&h=600&fit=crop"
+        subtitle="Create unforgettable unboxing experiences with stunning packaging"
+        backgroundImage="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=1920&h=600&fit=crop"
       />
 
       <section className="py-20">

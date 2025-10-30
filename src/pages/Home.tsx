@@ -82,9 +82,16 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <span className="inline-block bg-secondary/20 text-secondary-foreground px-6 py-2 rounded-full text-sm font-semibold mb-8">
+              <motion.span 
+                className="inline-block bg-secondary/20 text-secondary-foreground px-6 py-2 rounded-full text-sm font-semibold mb-8 border-2 border-secondary/30"
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  borderColor: ['hsl(37 90% 53% / 0.3)', 'hsl(37 90% 53% / 0.6)', 'hsl(37 90% 53% / 0.3)']
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 Your Trusted Design & Print Partner
-              </span>
+              </motion.span>
             </motion.div>
 
             <motion.h1
@@ -149,16 +156,32 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
               <Link to={service.path}>
-                  <div className="group bg-card rounded-2xl p-8 shadow-lg hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary">
-                    <div className="text-primary mb-6 group-hover:text-secondary transition-smooth group-hover:scale-110">
-                      {service.icon}
+                  <motion.div 
+                    className="group bg-card rounded-2xl p-8 shadow-lg hover:shadow-elegant transition-all duration-500 hover:-translate-y-3 border-2 border-transparent hover:border-secondary relative overflow-hidden"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-br from-secondary/0 via-secondary/5 to-secondary/0"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <div className="relative z-10">
+                      <motion.div 
+                        className="text-primary mb-6 group-hover:text-secondary transition-smooth"
+                        whileHover={{ scale: 1.2, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{service.title}</h3>
+                      <p className="text-muted-foreground mb-6">{service.description}</p>
+                      <span className="text-primary font-semibold inline-flex items-center group-hover:text-secondary transition-smooth">
+                        Learn More <ArrowRight className="ml-2 group-hover:translate-x-3 transition-transform" size={20} />
+                      </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{service.title}</h3>
-                    <p className="text-muted-foreground mb-6">{service.description}</p>
-                    <span className="text-primary font-semibold inline-flex items-center group-hover:text-secondary transition-smooth">
-                      Learn More <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={20} />
-                    </span>
-                  </div>
+                  </motion.div>
                 </Link>
               </motion.div>
             ))}
@@ -192,10 +215,14 @@ const Home = () => {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                   animate={inView2 ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-background p-6 rounded-xl hover:bg-muted hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="bg-background p-6 rounded-xl hover:bg-muted hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -204,8 +231,19 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section className="py-20 gradient-hero text-primary-foreground relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0"
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 50%, hsl(37 90% 53% / 0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 50%, hsl(37 90% 53% / 0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 50%, hsl(37 90% 53% / 0.15) 0%, transparent 50%)',
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -213,14 +251,27 @@ const Home = () => {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold mb-6"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Ready to Get Started?
+            </motion.h2>
+            <motion.p 
+              className="text-xl mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
               Let's bring your vision to life with our professional services
-            </p>
+            </motion.p>
             <Link to="/contact">
-              <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg hover:scale-105 transition-transform">
-                Contact Us Today <ArrowRight className="ml-2" />
-              </Button>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg animate-pulse-glow">
+                  Contact Us Today <ArrowRight className="ml-2" />
+                </Button>
+              </motion.div>
             </Link>
           </motion.div>
         </div>
