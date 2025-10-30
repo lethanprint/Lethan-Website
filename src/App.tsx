@@ -11,6 +11,7 @@ import Printing from "./pages/services/Printing";
 import Branding from "./pages/services/Branding";
 import Signage from "./pages/services/Signage";
 import Packaging from "./pages/services/Packaging";
+import Clients from "./pages/Clients";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/signage" element={<Signage />} />
           <Route path="/services/packaging" element={<Packaging />} />
+          <Route path="/clients" element={<Clients />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

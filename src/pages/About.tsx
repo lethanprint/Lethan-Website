@@ -40,6 +40,7 @@ const About = () => {
       <HeroSection
         title="About Lethan Garments & Prints"
         subtitle="Your trusted partner for professional design, printing, and branding solutions"
+        backgroundImage="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=600&fit=crop"
       />
 
       {/* Story Section */}
@@ -96,12 +97,12 @@ const About = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-background p-8 rounded-2xl shadow-lg text-center hover:shadow-elegant transition-all duration-300"
+                className="bg-background p-8 rounded-2xl shadow-lg text-center hover:shadow-elegant hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="text-primary mb-6 flex justify-center">
+                <div className="text-primary mb-6 flex justify-center group-hover:text-secondary transition-smooth">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}

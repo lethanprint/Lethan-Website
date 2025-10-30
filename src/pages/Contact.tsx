@@ -49,6 +49,7 @@ const Contact = () => {
       <HeroSection
         title="Get In Touch"
         subtitle="We'd love to hear from you. Let's discuss your project!"
+        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=600&fit=crop"
       />
 
       <section className="py-20">
@@ -71,13 +72,13 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-start space-x-4 p-4 bg-card rounded-xl hover:shadow-lg transition-smooth group"
+                    className="flex items-start space-x-4 p-4 bg-card rounded-xl hover:shadow-lg hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1 group"
                   >
-                    <div className="text-primary group-hover:text-secondary transition-smooth">
+                    <div className="text-primary group-hover:text-secondary group-hover:scale-110 transition-all duration-300">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
+                      <h3 className="font-semibold text-foreground mb-1 group-hover:text-secondary transition-smooth">{info.title}</h3>
                       <p className="text-muted-foreground">{info.content}</p>
                     </div>
                   </motion.a>
@@ -108,7 +109,7 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-card p-8 rounded-2xl shadow-elegant">
+              <div className="bg-card p-8 rounded-2xl shadow-elegant border-2 border-transparent hover:border-secondary transition-all duration-300">
                 <h2 className="text-3xl font-bold text-primary mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -180,7 +181,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full gradient-accent shadow-glow">
+                  <Button type="submit" size="lg" className="w-full gradient-accent shadow-glow hover:scale-105 transition-transform">
                     Send Message
                   </Button>
                 </form>

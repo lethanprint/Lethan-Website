@@ -40,6 +40,13 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="relative gradient-hero text-primary-foreground pt-32 pb-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=800&fit=crop)' }}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+        
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             className="absolute top-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"
@@ -104,10 +111,10 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg">
+              <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg hover:scale-105 transition-transform">
                 Get Started <ArrowRight className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button size="lg" variant="outline" className="text-lg border-2 border-primary-foreground text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-all duration-300">
                 View Our Work
               </Button>
             </motion.div>
@@ -141,12 +148,12 @@ const Home = () => {
                 animate={inView1 ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Link to={service.path}>
-                  <div className="group bg-card rounded-2xl p-8 shadow-lg hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
-                    <div className="text-primary mb-6 group-hover:text-secondary transition-smooth">
+              <Link to={service.path}>
+                  <div className="group bg-card rounded-2xl p-8 shadow-lg hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary">
+                    <div className="text-primary mb-6 group-hover:text-secondary transition-smooth group-hover:scale-110">
                       {service.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{service.title}</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{service.title}</h3>
                     <p className="text-muted-foreground mb-6">{service.description}</p>
                     <span className="text-primary font-semibold inline-flex items-center group-hover:text-secondary transition-smooth">
                       Learn More <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={20} />
@@ -185,9 +192,9 @@ const Home = () => {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                   animate={inView2 ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-background p-6 rounded-xl"
+                  className="bg-background p-6 rounded-xl hover:bg-muted hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
                   <p className="text-muted-foreground">{item.desc}</p>
                 </motion.div>
               ))}
@@ -211,7 +218,7 @@ const Home = () => {
               Let's bring your vision to life with our professional services
             </p>
             <Link to="/contact">
-              <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg">
+              <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg hover:scale-105 transition-transform">
                 Contact Us Today <ArrowRight className="ml-2" />
               </Button>
             </Link>

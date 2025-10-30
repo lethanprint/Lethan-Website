@@ -6,11 +6,23 @@ interface HeroSectionProps {
   subtitle?: string;
   children?: ReactNode;
   centered?: boolean;
+  backgroundImage?: string;
 }
 
-const HeroSection = ({ title, subtitle, children, centered = true }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, children, centered = true, backgroundImage }: HeroSectionProps) => {
   return (
     <section className="relative gradient-hero text-primary-foreground py-32 overflow-hidden">
+      {/* Background Image with Overlay */}
+      {backgroundImage && (
+        <>
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+        </>
+      )}
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

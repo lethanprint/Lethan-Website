@@ -17,7 +17,10 @@ const Designing = () => {
       <Navigation />
       <FloatingChat />
 
-      <HeroSection title="Professional Designing Services" />
+      <HeroSection 
+        title="Professional Designing Services"
+        backgroundImage="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&h=600&fit=crop"
+      />
 
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -60,9 +63,9 @@ const Designing = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-card p-6 rounded-xl shadow-lg hover:shadow-elegant transition-smooth"
+                  className="bg-card p-6 rounded-xl shadow-lg hover:shadow-elegant hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1"
                 >
-                  <p className="text-lg font-medium text-foreground">✓ {service}</p>
+                  <p className="text-lg font-medium text-foreground group-hover:text-secondary">✓ {service}</p>
                 </motion.div>
               ))}
             </div>

@@ -91,13 +91,19 @@ const Navigation = () => {
               </AnimatePresence>
             </div>
 
+            <Link to="/clients" className="nav-link text-foreground hover:text-secondary transition-smooth">
+              Clients
+            </Link>
+
             <Link to="/contact" className="nav-link text-foreground hover:text-primary transition-smooth">
               Contact
             </Link>
 
-            <Button variant="default" size="lg" className="gradient-accent shadow-glow">
-              Get Quote
-            </Button>
+            <Link to="/contact">
+              <Button variant="default" size="lg" className="gradient-accent shadow-glow hover:scale-105 transition-transform">
+                Get Quote
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -156,13 +162,19 @@ const Navigation = () => {
                   </AnimatePresence>
                 </div>
 
+                <Link to="/clients" className="text-foreground hover:text-secondary transition-smooth">
+                  Clients
+                </Link>
+
                 <Link to="/contact" className="text-foreground hover:text-primary transition-smooth">
                   Contact
                 </Link>
 
-                <Button variant="default" className="gradient-accent w-full">
-                  Get Quote
-                </Button>
+                <Link to="/contact" className="w-full">
+                  <Button variant="default" className="gradient-accent w-full">
+                    Get Quote
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           )}
