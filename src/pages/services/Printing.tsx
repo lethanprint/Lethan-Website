@@ -4,12 +4,15 @@ import HeroSection from '@/components/HeroSection';
 import ServiceCarousel from '@/components/ServiceCarousel';
 import FloatingChat from '@/components/FloatingChat';
 import { motion } from 'framer-motion';
+import { P } from 'node_modules/framer-motion/dist/types.d-BJcRxCew';
 
 const Printing = () => {
   const carouselImages = [
-    'https://images.unsplash.com/photo-1611329532992-0988061b036e?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1563089145-599997674d42?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=1200&h=600&fit=crop',
+    '/packphotos/printing1.png',
+    '/packphotos/printing3.png',
+    '/packphotos/printing8.jpeg',
+    '/packphotos/printing5.jpeg',
+
   ];
 
   return (
@@ -19,7 +22,7 @@ const Printing = () => {
 
       <HeroSection 
         title="High-Quality Printing Solutions"
-        backgroundImage="https://images.unsplash.com/photo-1611329532992-0988061b036e?w=1920&h=600&fit=crop"
+        backgroundImage="/products/printinghero.jpg"
       />
 
       <section className="py-20">
@@ -48,14 +51,14 @@ const Printing = () => {
             <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Printing Services Include:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                'Digital & Offset Printing',
+                'Digital Offset Printing',
                 'Large Format Printing',
-                'Business Cards & Stationery',
-                'Brochures & Catalogs',
-                'Posters & Banners',
-                'Flyers & Leaflets',
-                'Custom Labels & Stickers',
-                'Specialty Materials Printing',
+                'Merchandise Printing',
+                'Offset Printing',
+                'Engraving & Direct Branding',
+                'Signage Production',
+                'Screen Printing',
+                'UV/ DTF Printing',
               ].map((service, index) => (
                 <motion.div
                   key={service}

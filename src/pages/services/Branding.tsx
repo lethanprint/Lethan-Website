@@ -7,9 +7,16 @@ import { motion } from 'framer-motion';
 
 const Branding = () => {
   const carouselImages = [
-    'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1553835973-dec43bfddbeb?w=1200&h=600&fit=crop',
+    '/packphotos/branding1.png',
+    '/packphotos/branding4.jpg',
+    '/packphotos/branding3.png', 
+    '/products/ever2.png',
+    '/products/earg1.png', 
+    '/products/jumuia2.png',
+    '/products/kengen1.jpg',
+    '/products/kdf3.jpg',
+    '/products/kengen2.jpg',
+    '/products/goblue2.png',
   ];
 
   return (
@@ -48,14 +55,14 @@ const Branding = () => {
             <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Branding Services Include:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                'Brand Strategy Development',
-                'Logo & Visual Identity',
-                'Brand Guidelines Creation',
-                'Marketing Collateral Design',
+                'Custom Designed Products',
+                'Branded Merchandise & Apparel',
+                'Social Media Infographics',
+                'Branded Packaging',
                 'Corporate Identity Systems',
                 'Rebranding Services',
-                'Brand Positioning',
-                'Brand Experience Design',
+                'Printing Services for Branding',
+                'Brand Personal Experience Design',
               ].map((service, index) => (
                 <motion.div
                   key={service}

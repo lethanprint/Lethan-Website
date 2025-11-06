@@ -7,9 +7,16 @@ import { motion } from 'framer-motion';
 
 const Designing = () => {
   const carouselImages = [
-    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&h=600&fit=crop',
+    '/products/jumuia1.png',
+    '/products/kengen3.png',
+    '/products/ever5.png',
+    '/products/eagr4.png',
+    'products/aberdare1.png',
+    '/products/aberdare2.png',
+    '/products/branding2.png',
+    '/products/design1.jpg',
+    '/products/design2.jpg',
+
   ];
 
   return (
@@ -19,7 +26,7 @@ const Designing = () => {
 
       <HeroSection 
         title="Professional Designing Services"
-        backgroundImage="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&h=600&fit=crop"
+        backgroundImage="/products/design-hero.jpg"
       />
 
       <section className="py-20">
@@ -54,7 +61,7 @@ const Designing = () => {
                 'Business Cards & Stationery',
                 'Brochures & Flyers',
                 'Posters & Banners',
-                'Product Packaging Design',
+                'Company Profiles',
                 'UI/UX Design',
               ].map((service, index) => (
                 <motion.div

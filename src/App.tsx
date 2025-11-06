@@ -9,11 +9,12 @@ import Contact from "./pages/Contact";
 import Designing from "./pages/services/Designing";
 import Printing from "./pages/services/Printing";
 import Branding from "./pages/services/Branding";
-import Signage from "./pages/services/Signage";
+import Signage from "./pages/services/Supplies";
 import Packaging from "./pages/services/Packaging";
 import Clients from "./pages/Clients";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
+import Supplies from "./pages/services/Supplies";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +32,7 @@ const App = () => (
           <Route path="/services/designing" element={<Designing />} />
           <Route path="/services/printing" element={<Printing />} />
           <Route path="/services/branding" element={<Branding />} />
-          <Route path="/services/signage" element={<Signage />} />
+          <Route path="/services/supplies" element={<Supplies />} />
           <Route path="/services/packaging" element={<Packaging />} />
           <Route path="/clients" element={<Clients />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, Sparkles, Palette, Package } from 'lucide-react';
+import { ArrowRight, Sparkles, Palette, Brush, Signpost, Package, MessageCircleQuestion  } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StatsCounter from '@/components/StatsCounter';
 import FloatingChat from '@/components/FloatingChat';
 import { Button } from '@/components/ui/button';
+import ClientLogosCarousel from '@/components/ClientLogosCarousel';
+
 
 const Home = () => {
   const [ref1, inView1] = useInView({ threshold: 0.2, triggerOnce: true });
@@ -26,11 +28,30 @@ const Home = () => {
       path: '/services/printing',
     },
     {
-      icon: <Package size={48} />,
+      icon: <Brush size={48} />,
       title: 'Brand Development',
       description: 'Complete branding solutions to elevate your business',
       path: '/services/branding',
     },
+    {
+      icon: <Signpost size={48} />,
+      title: 'Signage Design & Fabrication',
+      description: 'We provide end-to-end signage solutions that elevate your brand visibility. We create high-quality indoor and outdoor signage tailored to your business needs.',
+      path: '/services/signage',
+    },
+    {
+      icon: <Package size={48} />,
+      title: 'Custom Packaging Design & Production',
+      description: 'We create high-quality, branded packaging that enhances product appeal and brand recognition.',
+      path: '/services/packaging',
+    },
+    {
+      icon: <MessageCircleQuestion  size={48} />,
+      title: 'Free Consultation',
+      description: 'Let’s talk about your idea! Book a free session with our team and we’ll help you explore the best approach for your project—no pressure, no commitment.',
+      path: '/contact',
+    },
+    
   ];
 
   return (
@@ -98,7 +119,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-black text-center mb-4"
             >
               Transform Your Vision Into Reality
             </motion.h1>
@@ -118,12 +139,16 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
+              <Link to="/contact">
               <Button size="lg" variant="default" className="gradient-accent shadow-glow text-lg hover:scale-105 transition-transform">
                 Get Started <ArrowRight className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg border-2 border-primary-foreground text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-all duration-300">
+              </Link>
+              <Link to="/clients">
+              <Button size="lg" variant="outline" className="bg-white text-secondary border-2 border-secondary hover:bg-primary">
                 View Our Work
               </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -131,7 +156,9 @@ const Home = () => {
 
       {/* Stats Counter */}
       <StatsCounter />
-
+      {/* Client Logos Carousel */}
+      <ClientLogosCarousel />
+      
       {/* Services Section */}
       <section ref={ref1} className="py-20">
         <div className="container mx-auto px-4">
@@ -141,7 +168,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Our Services</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-4">Our Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive solutions to bring your brand to life
             </p>
@@ -180,53 +207,14 @@ const Home = () => {
                       <span className="text-primary font-semibold inline-flex items-center group-hover:text-secondary transition-smooth">
                         Learn More <ArrowRight className="ml-2 group-hover:translate-x-3 transition-transform" size={20} />
                       </span>
+                      
                     </div>
+                    
                   </motion.div>
                 </Link>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section ref={ref2} className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView2 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Why Choose Lethan?</h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              We combine creativity, quality, and reliability to deliver exceptional results
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              {[
-                { title: 'Expert Team', desc: 'Skilled professionals with years of industry experience' },
-                { title: 'Quality Guaranteed', desc: 'Premium materials and cutting-edge technology' },
-                { title: 'Fast Turnaround', desc: 'Efficient processes to meet your deadlines' },
-                { title: 'Competitive Pricing', desc: 'Excellent value without compromising quality' },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  animate={inView2 ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-background p-6 rounded-xl hover:bg-muted hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 

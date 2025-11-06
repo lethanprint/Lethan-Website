@@ -8,6 +8,8 @@ import FloatingChat from '@/components/FloatingChat';
 
 const About = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+  const [ref1, inView1] = useInView({ threshold: 0.2, triggerOnce: true });
+  const [ref2, inView2] = useInView({ threshold: 0.2, triggerOnce: true });
 
   const values = [
     {
@@ -54,7 +56,7 @@ const About = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Our Story</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-center mb-4">Our Story</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Founded with a passion for creativity and excellence, Lethan Garments & Prints has grown to become a trusted name in the design and printing industry. With over 15 years of experience, we've helped hundreds of businesses transform their brand identity and achieve their marketing goals.
               </p>
@@ -84,7 +86,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">What Drives Us</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-4">What Drives Us</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Our core values and commitment to excellence
             </p>
@@ -109,25 +111,43 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Team Section */}
-      <section className="py-20">
+      
+      {/* Why Choose Us Section */}
+      <section ref={ref2} className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={inView2 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Meet Our Team</h2>
-            <p className="text-lg text-muted-foreground mb-12">
-              A passionate group of designers, printers, and brand specialists dedicated to bringing your vision to life. Our diverse team combines creativity, technical expertise, and industry knowledge to deliver exceptional results for every project.
+            <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">Why Choose Lethan?</h2>
+            <p className="text-xl text-muted-foreground mb-12">
+              We combine creativity, quality, and reliability to deliver exceptional results
             </p>
-            <div className="bg-primary/5 p-8 rounded-2xl">
-              <p className="text-lg text-foreground italic">
-                "We don't just create designs and prints – we create experiences that help our clients succeed. Every project is an opportunity to exceed expectations and build lasting relationships."
-              </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              {[
+                { title: 'Expert Team', desc: 'Skilled professionals with years of industry experience' },
+                { title: 'Quality Guaranteed', desc: 'Premium materials and cutting-edge technology' },
+                { title: 'Fast Turnaround', desc: 'Efficient processes to meet your deadlines' },
+                { title: 'Competitive Pricing', desc: 'Excellent value without compromising quality' },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  animate={inView2 ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-background p-6 rounded-xl hover:bg-muted hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

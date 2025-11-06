@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, MessageCircle ,PhoneOutgoing , Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const services = [
@@ -21,15 +21,16 @@ const Footer = () => {
               Your trusted partner for professional design, printing, and branding solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-secondary transition-smooth">
+              <a href="https://www.facebook.com/profile.php?id=100088955576999" className="hover:text-secondary transition-smooth">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-secondary transition-smooth">
-                <Instagram size={20} />
+              <a href="https://wa.me/<+254723883765>" className="hover:text-secondary transition-smooth">
+                <MessageCircle  size={20} />
               </a>
-              <a href="#" className="hover:text-secondary transition-smooth">
-                <Twitter size={20} />
+              <a href="tel:+254723883765>" className="hover:text-secondary transition-smooth">
+                <PhoneOutgoing  size={20} />
               </a>
+              
             </div>
           </div>
 
@@ -78,15 +79,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-primary-foreground/80">123 Business Street, City, Country</span>
+                <span className="text-primary-foreground/80">Gaberone Plaza, 7th Floor. Gaberone Rd</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="flex-shrink-0" />
-                <span className="text-primary-foreground/80">+1 234 567 8900</span>
+                <span className="text-primary-foreground/80">+254 723 883 765</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@lethangarments.com</span>
+                <span className="text-primary-foreground/80">lethanprint@gmail.com</span>
               </li>
             </ul>
           </div>

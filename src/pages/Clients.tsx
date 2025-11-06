@@ -15,41 +15,125 @@ import {
 const Clients = () => {
   const clients = [
     {
-      name: "TechCorp Solutions",
-      logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=200&fit=crop",
+      name: "Safaricom PLC",
+      logo: "/logos/safaricom1.png",
       images: [
-        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop",
+        "/products/safaricom1.png",
+        "/products/safaricom2.jpg",
+        "/products/safaricom3.jpg",
+        "/products/safaricom4.jpg",
       ]
     },
     {
-      name: "Creative Minds Agency",
-      logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=200&h=200&fit=crop",
+      name: "Kenya Defence Forces",
+      logo: "/logos/kdf.jpg",
       images: [
-        "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
+        "/products/kdf3.jpg",
+        "/products/kdf2.png",
+        "/products/kdf1.png",
       ]
     },
     {
-      name: "Global Retail Group",
-      logo: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
+      name: "NTSA",
+      logo: "/logos/ntsa.png",
       images: [
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=600&h=400&fit=crop",
+        "/products/ntsa4.png",
+        "/products/ntsa1.png",
+        "/products/ntsa3.png",
+        "/products/ntsa2.png",
+        "/products/ntsa5.png",
+        
       ]
     },
     {
-      name: "Innovate Startups",
-      logo: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&h=200&fit=crop",
+      name: "KRA",
+      logo: "/logos/kra.png",
       images: [
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
+        "/products/kra2.png",
+        "/products/kra3.jpeg",
+        "/products/kra1.png",
+        "/products/kra4.jpeg",
+        "/products/kra5.jpeg", 
       ]
     },
+    {
+      name: "KenGen",
+      logo: "/logos/kenGen.png",
+      images: [
+        "/products/kengen1.jpg",
+        "/products/kengen2.jpg",
+        "/products/kengen3.png",
+        "/products/kengen4.jpg",         
+      ]
+    },
+    {
+      name: "East African Regional Summit",
+      logo: "/logos/eargh.png",
+      images: [
+        "/products/earg6.png",
+        "/products/earg1.png",
+        "/products/earg2.png",
+        "/products/earg4.png",
+        "/products/earg5.png",                       
+      ]
+    },
+    {
+      name: "Evergrow",
+      logo: "/logos/evergreen.png",
+      images: [
+        "/products/ever1.png",
+        "/products/ever2.png",
+        "/products/ever3.png",
+        "/products/ever4.png",
+        "/products/ever5.png",                       
+      ]
+    },
+    {
+      name: "Rhinoark",
+      logo: "/logos/rhinoark.png",
+      images: [
+        "/products/rhino1.png",
+        "/products/rhino2.png",
+                       
+
+      ]
+    },
+    {
+      name: "Go Blue",
+      logo: "/logos/goblue.jpeg",
+      images: [
+        "/products/goblue1.png",
+        "/products/goblue2.png",
+        "/products/goblue3.png",                       
+      ]
+    },
+    {
+      name: "JABEIC",
+      logo: "/logos/jabeic.png",
+      images: [
+        "/products/jabiec1.png",
+        "/products/jabiec2.png",                           
+    ]
+    },
+    {
+      name: "Aberdare Yetu",
+      logo: "/logos/aberdareyetu.jpg",
+      images: [
+        "/products/aberdare1.png",
+        "/products/aberdare2.png",                              
+        "/products/aberdare3.png",                              
+      ]
+    },
+    {
+      name: "Jumuiya Pwani",
+      logo: "/logos/jumiapwani.png",
+      images: [
+        "/products/jumuia1.png",
+        "/products/jumuia2.png",                              
+                                      
+      ]
+    },
+    
   ];
 
   return (
@@ -105,7 +189,7 @@ const Clients = () => {
                       {client.images.map((image, imgIndex) => (
                         <CarouselItem key={imgIndex}>
                           <motion.div 
-                            className="relative aspect-video overflow-hidden rounded-lg border-2 border-transparent hover:border-secondary transition-colors duration-300"
+                            className="relative h-72 overflow-hidden rounded-xl border-2 border-transparent hover:border-secondary transition-all duration-300"
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.4 }}
                           >
