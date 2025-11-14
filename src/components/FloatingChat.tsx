@@ -32,7 +32,7 @@ const FloatingChat = () => {
               </div>
               <div className="flex flex-col space-y-2">
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/+254723883765"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#25D366] text-white p-3 rounded-lg text-center font-medium hover:bg-[#20BA5A] transition-smooth"
@@ -40,7 +40,8 @@ const FloatingChat = () => {
                   Chat on WhatsApp
                 </a>
                 <a
-                  href="mailto:info@lethangarments.com"
+                  href="mailto:lethanprint@gmail.com
+"
                   className="bg-primary text-primary-foreground p-3 rounded-lg text-center font-medium hover:bg-primary/90 transition-smooth"
                 >
                   Send Email

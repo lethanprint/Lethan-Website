@@ -77,7 +77,7 @@ const Contact = () => {
       <HeroSection
         title="Get In Touch"
         subtitle="We'd love to hear from you. Let's discuss your project!"
-        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=600&fit=crop"
+        backgroundImage="/logos/contact2.jpg"
       />
 
       <section className="py-20">

@@ -7,9 +7,11 @@ import { motion } from 'framer-motion';
 
 const Packaging = () => {
   const carouselImages = [
-    'https://images.unsplash.com/photo-1638646201197-07bdd9dfa145?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&h=600&fit=crop',
+    '/products/bottle.jpg',
+    '/products/goblue2.png',
+    '/products/kdfbag.jpg',
+    '/products/kra1.png',
+    '/products/kra2.png',
   ];
 
   return (
@@ -20,7 +22,7 @@ const Packaging = () => {
       <HeroSection 
         title="Custom Packaging Solutions"
         subtitle="Create unforgettable unboxing experiences with stunning packaging"
-        backgroundImage="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=1920&h=600&fit=crop"
+        backgroundImage="/logos/packaging.jpg"
       />
 
       <section className="py-20">

@@ -10,8 +10,8 @@ const Printing = () => {
   const carouselImages = [
     '/packphotos/printing1.png',
     '/packphotos/printing3.png',
-    '/packphotos/printing8.jpeg',
-    '/packphotos/printing5.jpeg',
+    '/products/earg4.png',
+    '/packphotos/printing7.png',
 
   ];
 

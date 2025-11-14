@@ -7,13 +7,11 @@ import { motion } from 'framer-motion';
 
 const Designing = () => {
   const carouselImages = [
-    '/products/jumuia1.png',
-    '/products/kengen3.png',
+    '/products/un.jpg',
+    '/products/aberdare1.png',
     '/products/ever5.png',
-    '/products/eagr4.png',
-    'products/aberdare1.png',
     '/products/aberdare2.png',
-    '/products/branding2.png',
+    '/products/brand.jpg',
     '/products/design1.jpg',
     '/products/design2.jpg',
 
@@ -26,7 +24,7 @@ const Designing = () => {
 
       <HeroSection 
         title="Professional Designing Services"
-        backgroundImage="/products/design-hero.jpg"
+        backgroundImage="/logos/designhero.jpg"
       />
 
       <section className="py-20">

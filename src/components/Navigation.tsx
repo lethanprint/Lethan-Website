@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import lethanLogo from "@/assets/lethan-logo.jpg";
+import lethanLogo from "/logos/lethanlogo.png";
 import { useIsMobile } from "@/hooks/use-mobile"; // 👈 import your hook
 
 const Navigation = () => {
@@ -49,7 +49,7 @@ const Navigation = () => {
             <motion.img
               src={lethanLogo}
               alt="Lethan Garments & Prints Logo"
-              className="h-14 w-auto rounded-full border-2 border-transparent group-hover:border-secondary transition-all duration-300"
+              className="max-h-14 w-auto border-2 border-transparent group-hover:border-secondary transition-all duration-300"
               whileHover={{ rotate: [0, -5, 5, -5, 0], scale: 1.05 }}
               transition={{ duration: 0.5 }}
             />

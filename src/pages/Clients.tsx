@@ -93,7 +93,7 @@ const Clients = () => {
       logo: "/logos/rhinoark.png",
       images: [
         "/products/rhino1.png",
-        "/products/rhino2.png",
+        "/products/rhino3.jpg",
                        
 
       ]
@@ -144,7 +144,7 @@ const Clients = () => {
       <HeroSection 
         title="Our Valued Clients" 
         subtitle="Trusted by businesses across industries to deliver exceptional results"
-        backgroundImage="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1920&h=600&fit=crop"
+        backgroundImage="/logos/client.jpg"
       />
 
       <section className="py-20 bg-background">
