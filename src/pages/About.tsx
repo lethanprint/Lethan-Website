@@ -42,7 +42,7 @@ const About = () => {
       <HeroSection
         title="About Lethan Garments & Prints"
         subtitle="Your trusted partner for professional design, printing, and branding solutions"
-        backgroundImage="/logos/aboutus.png"
+        backgroundImage="/logos/aboutus.jpg"
       />
 
       {/* Story Section */}

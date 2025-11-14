@@ -64,7 +64,7 @@ const Home = () => {
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=800&fit=crop)' }}
+          style={{ backgroundImage: 'url(/logos/homehero.jpg)' }}
         />
         <div className="absolute inset-0 bg-primary/80" />
         
