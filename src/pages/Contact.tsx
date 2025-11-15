@@ -79,17 +79,16 @@ const Contact = () => {
 
         const whatsappNumber = "254723883765";
 
-        const whatsappText = `
-*New Contact Inquiry*
-
-*Name:* ${name}
-*Email:* ${email}
-*Phone:* ${phone}
-*Service:* ${service}
-
-*Message:*
-${message}
-        `;
+        const whatsappText = [
+          "*New Contact Inquiry*",
+          "",
+          `*Name:* ${name}`,
+          `*Email:* ${email}`,
+          `*Phone:* ${phone}`,
+          `*Service:* ${service}`,
+          "",
+          `*Message:* ${message}`
+        ].join("\n");
 
         const encodedMessage = encodeURIComponent(whatsappText);
 
