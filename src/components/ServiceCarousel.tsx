@@ -39,9 +39,7 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
     setCurrentIndex((prev) => {
-      if (newDirection === 1) {
-        return (prev + 1) % images.length;
-      }
+      if (newDirection === 1) return (prev + 1) % images.length;
       return prev === 0 ? images.length - 1 : prev - 1;
     });
   };
@@ -57,20 +55,27 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
+            x: { type: 'spring', stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
           className="absolute w-full h-full"
         >
+          {/* ⚡ Optimized Image */}
           <motion.img
-            src={images[currentIndex]}
+            src={images[currentIndex]}     
+            loading="lazy"                 
+            decoding="async"               
+            {...{ fetchpriority: "low" }}            
+            width="1200"                   
+            height="800"                   
             className="w-full h-full object-cover"
             alt={`Service showcase ${currentIndex + 1}`}
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
           />
-          <motion.div 
+
+          <motion.div
             className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -88,6 +93,7 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
       >
         <ChevronLeft size={24} />
       </motion.button>
+
       <motion.button
         onClick={() => paginate(1)}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-secondary/90 hover:bg-secondary text-secondary-foreground p-3 rounded-full transition-all duration-300 z-10 hover:scale-110 shadow-lg"
@@ -107,7 +113,9 @@ const ServiceCarousel = ({ images }: ServiceCarouselProps) => {
               setCurrentIndex(index);
             }}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-secondary scale-125 shadow-lg' : 'bg-primary-foreground/50 hover:bg-primary-foreground/80'
+              index === currentIndex
+                ? 'bg-secondary scale-125 shadow-lg'
+                : 'bg-primary-foreground/50 hover:bg-primary-foreground/80'
             }`}
             whileHover={{ scale: 1.5 }}
             whileTap={{ scale: 0.8 }}

@@ -49,10 +49,16 @@ const Navigation = () => {
             <motion.img
               src={lethanLogo}
               alt="Lethan Garments & Prints Logo"
+              loading="eager"
+              decoding="async"
+              {...{ fetchpriority: "high" }}
+              width="160"
+              height="56"
               className="max-h-14 w-auto border-2 border-transparent group-hover:border-secondary transition-all duration-300"
               whileHover={{ rotate: [0, -5, 5, -5, 0], scale: 1.05 }}
               transition={{ duration: 0.5 }}
             />
+
             <motion.span
               className="text-xl font-bold text-primary hidden sm:block group-hover:text-secondary transition-colors duration-300"
               whileHover={{ x: 5 }}

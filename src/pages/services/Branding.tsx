@@ -26,7 +26,7 @@ const Branding = () => {
 
       <HeroSection 
         title="Complete Branding Solutions"
-        backgroundImage="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&h=600&fit=crop"
+        backgroundImage="/logos/brandinghero.jpg"
       />
 
       <section className="py-20">

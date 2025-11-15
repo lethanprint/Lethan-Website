@@ -48,7 +48,10 @@ const Packaging = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Packaging Services Include:</h2>
+            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+              Our Packaging Services Include:
+            </h2>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Custom Box Design & Printing',

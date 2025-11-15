@@ -27,11 +27,11 @@ const ClientLogosCarousel = () => {
 
         <div className="relative w-full overflow-hidden">
           <motion.div
-            className="flex gap-50 whitespace-nowrap" // Increased from gap-10 → gap-24
+            className="flex gap-24 whitespace-nowrap"
             animate={{ x: ["0%", "-100%"] }}
             transition={{
               repeat: Infinity,
-              duration: 22, // slightly slower for an elegant look
+              duration: 22,
               ease: "linear",
             }}
           >
@@ -40,6 +40,11 @@ const ClientLogosCarousel = () => {
                 key={i}
                 src={logo}
                 alt="Client logo"
+                loading="lazy"
+                decoding="async"
+                {...{ fetchpriority: "low" }}
+                width="200"
+                height="80"
                 className="h-20 w-auto object-contain
                   opacity-95 
                   hover:opacity-100

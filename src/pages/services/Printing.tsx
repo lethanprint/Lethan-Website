@@ -4,15 +4,17 @@ import HeroSection from '@/components/HeroSection';
 import ServiceCarousel from '@/components/ServiceCarousel';
 import FloatingChat from '@/components/FloatingChat';
 import { motion } from 'framer-motion';
-import { P } from 'node_modules/framer-motion/dist/types.d-BJcRxCew';
+
+// ❌ REMOVE this (it breaks production builds)
+// import { P } from 'node_modules/framer-motion/dist/types.d-BJcRxCew';
 
 const Printing = () => {
+  // ⚡ IMPORTANT: These images will be lazy-loaded inside ServiceCarousel
   const carouselImages = [
     '/packphotos/printing1.png',
     '/packphotos/printing3.png',
     '/products/earg4.png',
     '/packphotos/printing7.png',
-
   ];
 
   return (
@@ -20,6 +22,7 @@ const Printing = () => {
       <Navigation />
       <FloatingChat />
 
+      {/* ❗ DO NOT lazy-load hero image (critical for LCP) */}
       <HeroSection 
         title="High-Quality Printing Solutions"
         backgroundImage="/products/printinghero.jpg"
@@ -27,6 +30,8 @@ const Printing = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
+
+          {/* Intro */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,12 +40,15 @@ const Printing = () => {
             className="max-w-4xl mx-auto text-center mb-16"
           >
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Experience premium printing services with state-of-the-art technology and superior materials. We deliver crisp, vibrant prints that make a lasting impression, whether it's business cards, large format banners, or specialty materials.
+              Experience premium printing services with state-of-the-art technology and superior materials.
+              We deliver crisp, vibrant prints that make a lasting impression.
             </p>
           </motion.div>
 
+          {/* ⚡ Service Carousel (images lazy-loaded inside component) */}
           <ServiceCarousel images={carouselImages} />
 
+          {/* Services List */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +56,10 @@ const Printing = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Printing Services Include:</h2>
+            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+              Our Printing Services Include:
+            </h2>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Digital Offset Printing',
@@ -68,11 +79,14 @@ const Printing = () => {
                   viewport={{ once: true }}
                   className="bg-card p-6 rounded-xl shadow-lg hover:shadow-elegant hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1"
                 >
-                  <p className="text-lg font-medium text-foreground">✓ {service}</p>
+                  <p className="text-lg font-medium text-foreground">
+                    ✓ {service}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
+
         </div>
       </section>
 

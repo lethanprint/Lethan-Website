@@ -7,15 +7,13 @@ import { motion } from 'framer-motion';
 
 const Supplies = () => {
   const carouselImages = [
-     '/products/ever1.png',
-     '/products/goblue3.png',
-     '/products/jabiec1.png',
-     '/products/jabiec2.png',
-     '/products/office1.jpg',
-     '/products/office2.jpg',
-     
-
-    ];
+    '/products/ever1.png',
+    '/products/goblue3.png',
+    '/products/jabiec1.png',
+    '/products/jabiec2.png',
+    '/products/office1.jpg',
+    '/products/office2.jpg',
+  ];
 
   return (
     <div className="min-h-screen">
@@ -39,7 +37,10 @@ const Supplies = () => {
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
               Keep your workspace efficient, organized, and professional with our premium office supplies and stationery. Whether you're a startup, corporate office, or educational institution, we provide reliable products
             </p>
-            <p>From pens that glide smoothly to notebooks built for ideas, durable files for organization, branded stationery, and premium desk essentials — we supply everything your office needs to run flawlessly.</p>
+            <p>
+              From pens that glide smoothly to notebooks built for ideas, durable files for organization, 
+              branded stationery, and premium desk essentials — we supply everything your office needs to run flawlessly.
+            </p>
           </motion.div>
 
           <ServiceCarousel images={carouselImages} />
@@ -51,7 +52,10 @@ const Supplies = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Office Supplies & School Stationary Include:</h2>
+            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+              Our Office Supplies & School Stationary Include:
+            </h2>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Paper in various paper sizes.',

@@ -14,7 +14,6 @@ const Designing = () => {
     '/products/brand.jpg',
     '/products/design1.jpg',
     '/products/design2.jpg',
-
   ];
 
   return (
@@ -50,7 +49,10 @@ const Designing = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Design Services Include:</h2>
+            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+              Our Design Services Include:
+            </h2>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Logo Design & Brand Identity',
@@ -70,7 +72,7 @@ const Designing = () => {
                   viewport={{ once: true }}
                   className="bg-card p-6 rounded-xl shadow-lg hover:shadow-elegant hover:border-secondary border-2 border-transparent transition-all duration-300 hover:-translate-y-1"
                 >
-                  <p className="text-lg font-medium text-foreground group-hover:text-secondary">✓ {service}</p>
+                  <p className="text-lg font-medium text-foreground">✓ {service}</p>
                 </motion.div>
               ))}
             </div>
