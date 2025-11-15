@@ -8,10 +8,12 @@ import FloatingChat from '@/components/FloatingChat';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from "@/components/ui/use-toast";  // ✅ Added
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [isSending, setIsSending] = useState(false);
+  const { toast } = useToast();  // ✅ Added
 
   const contactInfo = [
     {
@@ -49,24 +51,69 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'Lethan', // 🔹 replace with your EmailJS service ID
-        'template_cgsjksj', // 🔹 replace with your EmailJS template ID
+        'Lethan', 
+        'template_cgsjksj',
         form,
-        'r3bqdyZu1WlKg1yCY'   // 🔹 replace with your EmailJS public key
+        'r3bqdyZu1WlKg1yCY'
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert('✅ Message sent successfully!');
-          form.reset();
-          setIsSending(false);
-        },
-        (error) => {
-          console.error(error.text);
-          alert('❌ Failed to send message. Please try again.');
-          setIsSending(false);
-        }
-      );
+      .then((result) => {
+
+        // -----------------------------
+        //  SUCCESS TOAST (replaces alert)
+        // -----------------------------
+        toast({
+          title: "Message Sent ✔",
+          description: "We have received your message successfully.",
+        });
+
+        // -----------------------------
+        //  GET FORM DATA FOR WHATSAPP
+        // -----------------------------
+        const formData = new FormData(form);
+
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const phone = formData.get("phone");
+        const service = formData.get("service");
+        const message = formData.get("message");
+
+        const whatsappNumber = "254723883765";
+
+        const whatsappText = `
+*New Contact Inquiry*
+
+*Name:* ${name}
+*Email:* ${email}
+*Phone:* ${phone}
+*Service:* ${service}
+
+*Message:*
+${message}
+        `;
+
+        const encodedMessage = encodeURIComponent(whatsappText);
+
+        // -----------------------------
+        //  OPEN WHATSAPP AUTOMATICALLY
+        // -----------------------------
+        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+
+        form.reset();
+        setIsSending(false);
+      })
+      .catch((error) => {
+
+        // -----------------------------
+        //  ERROR TOAST (replaces alert)
+        // -----------------------------
+        toast({
+          variant: "destructive",
+          title: "Failed to Send ❌",
+          description: "Please try again or contact support.",
+        });
+
+        setIsSending(false);
+      });
   };
 
   return (
@@ -83,6 +130,7 @@ const Contact = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -118,6 +166,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
+            {/* Map */}
             <div className="mt-10 w-full h-[350px] rounded-lg overflow-hidden shadow-md">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.166042187628!2d36.8268291!3d-1.2842154!2m3!1f80!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e849a53eb7%3A0x235009a1613022f4!2sGaberone%20plaza!5e0!3m2!1sen!2ske!4v1730490000000!5m2!1sen!2ske"
@@ -138,6 +187,7 @@ const Contact = () => {
               <div className="bg-card p-8 rounded-2xl shadow-elegant border-2 border-transparent hover:border-secondary transition-all duration-300">
                 <h2 className="text-3xl font-bold text-primary mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Full Name
@@ -206,6 +256,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
+            {/* Why Contact Us */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -221,6 +272,7 @@ const Contact = () => {
                 <li>✓ Flexible scheduling</li>
               </ul>
             </motion.div>
+
           </div>
         </div>
       </section>
