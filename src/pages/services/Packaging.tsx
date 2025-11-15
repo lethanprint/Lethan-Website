@@ -34,7 +34,7 @@ const Packaging = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl font-medium leading-relaxed mb-8">
               Create unforgettable unboxing experiences with custom packaging that reflects your brand's personality. Our packaging solutions combine functionality with stunning design to protect your products while making a memorable impression on your customers.
             </p>
           </motion.div>
@@ -48,7 +48,7 @@ const Packaging = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-3xl font-extrabold text-primary mb-8 text-center">
               Our Packaging Services Include:
             </h2>
 

@@ -39,7 +39,7 @@ const Printing = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl font-medium leading-relaxed mb-8">
               Experience premium printing services with state-of-the-art technology and superior materials.
               We deliver crisp, vibrant prints that make a lasting impression.
             </p>
@@ -56,7 +56,7 @@ const Printing = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-3xl font-extrabold text-primary mb-8 text-center">
               Our Printing Services Include:
             </h2>
 

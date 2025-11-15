@@ -44,7 +44,7 @@ const StatsCounter = () => {
                   inView={inView}
                 />
               </motion.div>
-              <p className="text-muted-foreground mt-2 group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
+              <p className="font-medium mt-2 group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -80,7 +80,7 @@ const Counter = ({ end, duration, suffix = '', inView }: { end: number; duration
 
   return (
     <motion.div 
-      className="text-5xl font-bold text-primary group-hover:text-secondary transition-colors duration-300"
+      className="text-5xl font-extrabold text-primary group-hover:text-secondary transition-colors duration-300"
       animate={{ 
         textShadow: [
           '0 0 10px hsl(223 93% 23% / 0.2)',

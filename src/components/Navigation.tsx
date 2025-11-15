@@ -60,7 +60,7 @@ const Navigation = () => {
             />
 
             <motion.span
-              className="text-xl font-bold text-primary hidden sm:block group-hover:text-secondary transition-colors duration-300"
+              className="text-xl font-extrabold text-primary hidden sm:block group-hover:text-secondary transition-colors duration-300"
               whileHover={{ x: 5 }}
             >
               Lethan Garments & Prints
@@ -73,7 +73,7 @@ const Navigation = () => {
               <motion.div whileHover={{ y: -2 }}>
                 <Link
                   to="/"
-                  className="nav-link text-foreground hover:text-secondary transition-smooth relative group"
+                  className="nav-link text-foreground hover:text-secondary transition-smooth relative group font-semibold"
                 >
                   Home
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
@@ -83,7 +83,7 @@ const Navigation = () => {
               <motion.div whileHover={{ y: -2 }}>
                 <Link
                   to="/about"
-                  className="nav-link text-foreground hover:text-secondary transition-smooth relative group"
+                  className="nav-link text-foreground hover:text-secondary transition-smooth relative group font-semibold"
                 >
                   About Us
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
@@ -93,7 +93,7 @@ const Navigation = () => {
               {/* Services Dropdown */}
               <div className="relative group">
                 <motion.button
-                  className="flex items-center space-x-1 text-foreground hover:text-secondary transition-smooth relative"
+                  className="flex items-center space-x-1 text-foreground hover:text-secondary transition-smooth relative font-semibold"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                   whileHover={{ y: -2 }}
@@ -141,7 +141,7 @@ const Navigation = () => {
 
               <Link
                 to="/clients"
-                className="nav-link text-foreground hover:text-secondary transition-smooth relative group"
+                className="nav-link text-foreground hover:text-secondary transition-smooth relative group font-semibold"
               >
                 Clients
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
@@ -149,7 +149,7 @@ const Navigation = () => {
 
               <Link
                 to="/contact"
-                className="nav-link text-foreground hover:text-secondary transition-smooth relative group"
+                className="nav-link text-foreground hover:text-secondary transition-smooth relative group font-semibold"
               >
                 Contact
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
@@ -221,7 +221,7 @@ const Navigation = () => {
                           <Link
                             key={service.path}
                             to={service.path}
-                            className="text-muted-foreground hover:text-primary transition-smooth"
+                            className="font-medium hover:text-primary transition-smooth"
                           >
                             {service.name}
                           </Link>

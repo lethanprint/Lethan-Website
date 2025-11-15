@@ -104,7 +104,7 @@ const Home = () => {
               className="mb-6"
             >
               <motion.span 
-                className="inline-block bg-secondary/20 text-secondary-foreground px-6 py-2 rounded-full text-sm font-semibold mb-8 border-2 border-secondary/30"
+                className="inline-block bg-secondary/20 text-secondary-foreground px-6 py-2 rounded-full text-sm font-semiextrabold mb-8 border-2 border-secondary/30"
                 animate={{ 
                   scale: [1, 1.05, 1],
                   borderColor: ['hsl(37 90% 53% / 0.3)', 'hsl(37 90% 53% / 0.6)', 'hsl(37 90% 53% / 0.3)']
@@ -128,7 +128,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-primary-foreground/90 mb-10"
+              className="text-xl md:text-2xl text-primary-foreground/90 font-semibold mb-10"
             >
               Professional design, printing, branding, signage, and packaging solutions for businesses that stand out
             </motion.p>
@@ -169,7 +169,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black text-center mb-4">Our Services</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl font-medium max-w-2xl mx-auto">
               Comprehensive solutions to bring your brand to life
             </p>
           </motion.div>
@@ -202,9 +202,9 @@ const Home = () => {
                       >
                         {service.icon}
                       </motion.div>
-                      <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{service.title}</h3>
-                      <p className="text-muted-foreground mb-6">{service.description}</p>
-                      <span className="text-primary font-semibold inline-flex items-center group-hover:text-secondary transition-smooth">
+                      <h3 className="text-2xl font-extrabold text-foreground mb-4 group-hover:text-secondary transition-smooth">{service.title}</h3>
+                      <p className="font-medium mb-6">{service.description}</p>
+                      <span className="text-primary font-semiextrabold inline-flex items-center group-hover:text-secondary transition-smooth">
                         Learn More <ArrowRight className="ml-2 group-hover:translate-x-3 transition-transform" size={20} />
                       </span>
                       
@@ -240,7 +240,7 @@ const Home = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-extrabold mb-6"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             >

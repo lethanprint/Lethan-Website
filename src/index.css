@@ -147,7 +147,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply bg-background text-foreground font-sans;
   }
 }
 

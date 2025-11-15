@@ -24,12 +24,12 @@ const NotFound = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-9xl font-bold text-primary mb-4">404</h1>
+            <h1 className="text-9xl font-extrabold text-primary mb-4">404</h1>
             <div className="h-2 w-32 bg-secondary mx-auto rounded-full" />
           </motion.div>
 
-          <h2 className="text-4xl font-bold text-foreground mb-4">Page Not Found</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h2 className="text-4xl font-extrabold text-foreground mb-4">Page Not Found</h2>
+          <p className="text-xl font-medium mb-8">
             Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
           </p>
 

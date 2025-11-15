@@ -57,7 +57,7 @@ const About = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-black text-center mb-4">Our Story</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg font-medium leading-relaxed">
                 Founded with a passion for creativity and excellence, Lethan Garments & Prints has grown to become a trusted name in the design and printing industry. With over 15 years of experience, we've helped hundreds of businesses transform their brand identity and achieve their marketing goals.
               </p>
             </motion.div>
@@ -87,7 +87,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black text-center mb-4">What Drives Us</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl font-medium max-w-2xl mx-auto">
               Our core values and commitment to excellence
             </p>
           </motion.div>
@@ -104,8 +104,8 @@ const About = () => {
                 <div className="text-primary mb-6 flex justify-center group-hover:text-secondary transition-smooth">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-smooth">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
+                <h3 className="text-xl font-extrabold text-foreground mb-4 group-hover:text-secondary transition-smooth">{value.title}</h3>
+                <p className="font-medium">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -122,7 +122,7 @@ const About = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">Why Choose Lethan?</h2>
-            <p className="text-xl text-muted-foreground mb-12">
+            <p className="text-xl font-medium mb-12">
               We combine creativity, quality, and reliability to deliver exceptional results
             </p>
             
@@ -143,8 +143,8 @@ const About = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative z-10">
-                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.desc}</p>
+                    <h3 className="text-xl font-extrabold text-primary mb-2 group-hover:text-secondary transition-smooth">{item.title}</h3>
+                    <p className="font-medium">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

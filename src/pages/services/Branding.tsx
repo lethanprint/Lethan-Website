@@ -38,7 +38,7 @@ const Branding = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl font-medium leading-relaxed mb-8">
               Build a powerful brand identity that resonates with your audience. Our comprehensive branding services help you establish a unique market presence, create memorable experiences, and build lasting connections with your customers.
             </p>
           </motion.div>
@@ -52,7 +52,7 @@ const Branding = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Branding Services Include:</h2>
+            <h2 className="text-3xl font-extrabold text-primary mb-8 text-center">Our Branding Services Include:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Custom Designed Products',

@@ -28,10 +28,7 @@ export default {
       "2xl": "1536px",
     },
     extend: {
-      fontFamily: {
-        montserrat: ["Montserrat", "sans-serif"],
-      },
-      colors: {
+        colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

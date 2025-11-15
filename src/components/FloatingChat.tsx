@@ -17,7 +17,7 @@ const FloatingChat = () => {
           >
             <div className="gradient-hero text-primary-foreground p-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold">Chat with us!</h3>
+                <h3 className="font-semiextrabold">Chat with us!</h3>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="hover:bg-primary-foreground/20 p-1 rounded transition-smooth"

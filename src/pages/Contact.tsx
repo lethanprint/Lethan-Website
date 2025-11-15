@@ -137,7 +137,7 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-primary mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-extrabold text-primary mb-8">Contact Information</h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -155,10 +155,10 @@ const Contact = () => {
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1 group-hover:text-secondary transition-smooth">
+                      <h3 className="font-semiextrabold text-foreground mb-1 group-hover:text-secondary transition-smooth">
                         {info.title}
                       </h3>
-                      <p className="text-muted-foreground">{info.content}</p>
+                      <p className="font-medium">{info.content}</p>
                     </div>
                   </motion.a>
                 ))}
@@ -184,7 +184,7 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <div className="bg-card p-8 rounded-2xl shadow-elegant border-2 border-transparent hover:border-secondary transition-all duration-300">
-                <h2 className="text-3xl font-bold text-primary mb-6">Send Us a Message</h2>
+                <h2 className="text-3xl font-extrabold text-primary mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
                   <div>
@@ -263,8 +263,8 @@ const Contact = () => {
               viewport={{ once: true }}
               className="mt-8 p-6 bg-primary/5 rounded-xl"
             >
-              <h3 className="text-xl font-bold text-primary mb-4">Why Contact Us?</h3>
-              <ul className="space-y-2 text-muted-foreground">
+              <h3 className="text-xl font-extrabold text-primary mb-4">Why Contact Us?</h3>
+              <ul className="space-y-2 font-medium">
                 <li>✓ Free consultation and quotes</li>
                 <li>✓ Quick response time</li>
                 <li>✓ Expert guidance and support</li>

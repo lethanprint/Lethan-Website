@@ -35,7 +35,7 @@ const Designing = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl font-medium leading-relaxed mb-8">
               Our design services combine creativity with strategic thinking to create visuals that resonate with your target audience. From brand identity to marketing materials, we bring your vision to life with stunning, professional designs.
             </p>
           </motion.div>
@@ -49,7 +49,7 @@ const Designing = () => {
             viewport={{ once: true }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-3xl font-extrabold text-primary mb-8 text-center">
               Our Design Services Include:
             </h2>
 

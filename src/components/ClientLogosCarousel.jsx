@@ -21,7 +21,7 @@ const ClientLogosCarousel = () => {
   return (
     <section className="py-14 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-2xl md:text-3xl font-bold mb-10">
+        <h2 className="text-center text-2xl md:text-3xl font-extrabold mb-10">
           Trusted by Leading Brands
         </h2>
 

@@ -91,7 +91,7 @@ const HeroSection = ({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 drop-shadow-lg"
           >
             {title}
           </motion.h1>
@@ -101,7 +101,7 @@ const HeroSection = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="text-xl md:text-2xl text-primary-foreground/95 mb-8 drop-shadow-md"
+              className="text-xl md:text-2xl text-primary-foreground/90 font-semibold mb-8 drop-shadow-md"
             >
               {subtitle}
             </motion.p>
