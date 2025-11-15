@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface HeroSectionProps {
   title: string;
@@ -16,93 +16,91 @@ const HeroSection = ({
   centered = true,
   backgroundImage,
 }: HeroSectionProps) => {
+  // Run background animations AFTER first paint
+  const [animateBg, setAnimateBg] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setAnimateBg(true), 150);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <section className="relative gradient-hero text-primary-foreground py-32 overflow-hidden">
       
-      {/* 🚀 High-performance Hero Image */}
+      {/* 🚀 High-performance Hero Image (LCP optimized) */}
       {backgroundImage && (
-        <motion.img
+        <img
           src={backgroundImage}
           alt=""
-          {...{ fetchpriority: "high" }}
+          fetchPriority="high"
           loading="eager"
           decoding="async"
           width="1920"
           height="1080"
           className="absolute inset-0 w-full h-full object-cover"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
         />
       )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/80 to-primary/90" />
 
-      {/* Animated background lights */}
+      {/* Background lights — animation delayed for performance */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-10 w-64 h-64 bg-secondary/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0.6, 0.4],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {animateBg && (
+          <>
+            <motion.div
+              className="absolute top-20 right-10 w-64 h-64 bg-secondary/15 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.4, 0.6, 0.4],
+                x: [0, 30, 0],
+                y: [0, -20, 0],
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-        <motion.div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.4, 0.6, 0.4],
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+            <motion.div
+              className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/15 rounded-full blur-3xl"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.4, 0.6, 0.4],
+                x: [0, -30, 0],
+                y: [0, 20, 0],
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.2, 0.4, 0.2],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        />
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.2, 0.4, 0.2],
+                rotate: [0, 180, 360],
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            />
+          </>
+        )}
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-4xl ${centered ? "mx-auto text-center" : ""}`}>
+
+          {/* ✨ Title animation = faster */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg"
           >
-            <motion.span
-              className="inline-block"
-              animate={{
-                textShadow: [
-                  "0 0 20px hsl(37 90% 53% / 0.3)",
-                  "0 0 40px hsl(37 90% 53% / 0.5)",
-                  "0 0 20px hsl(37 90% 53% / 0.3)",
-                ],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              {title}
-            </motion.span>
+            {title}
           </motion.h1>
 
           {subtitle && (
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="text-xl md:text-2xl text-primary-foreground/95 mb-8 drop-shadow-md"
             >
               {subtitle}
@@ -111,13 +109,14 @@ const HeroSection = ({
 
           {children && (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
             >
               {children}
             </motion.div>
           )}
+
         </div>
       </div>
     </section>

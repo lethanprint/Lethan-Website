@@ -8,7 +8,7 @@ import { Suspense, lazy } from "react";
 
 import CustomCursor from "./components/CustomCursor";
 
-// 🔥 Lazy-loaded pages (reduces unused JS)
+// 🔥 Lazy-loaded pages (reduces unused JS bundle)
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -23,43 +23,38 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
 // 🔥 Page Transition Wrapper
-const PageWrapper = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+const PageWrapper = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -25 }}
+    transition={{ duration: 0.35, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
 
-// 🔥 Animated Routes with Page Transitions + Lazy Loading
+// 🔥 Animated Routes with transitions
 const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Suspense fallback={<div className="p-20 text-center">Loading...</div>}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-          <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
 
-          <Route path="/services/designing" element={<PageWrapper><Designing /></PageWrapper>} />
-          <Route path="/services/printing" element={<PageWrapper><Printing /></PageWrapper>} />
-          <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
-          <Route path="/services/supplies" element={<PageWrapper><Supplies /></PageWrapper>} />
-          <Route path="/services/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
+        <Route path="/services/designing" element={<PageWrapper><Designing /></PageWrapper>} />
+        <Route path="/services/printing" element={<PageWrapper><Printing /></PageWrapper>} />
+        <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
+        <Route path="/services/supplies" element={<PageWrapper><Supplies /></PageWrapper>} />
+        <Route path="/services/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
 
-          <Route path="/clients" element={<PageWrapper><Clients /></PageWrapper>} />
+        <Route path="/clients" element={<PageWrapper><Clients /></PageWrapper>} />
 
-          {/* Catch-all */}
-          <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-        </Routes>
-      </Suspense>
+        <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+      </Routes>
     </AnimatePresence>
   );
 };
@@ -73,11 +68,18 @@ const App = () => (
 
       <BrowserRouter
         future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
+          v7_startTransition: true,      // removes warnings
+          v7_relativeSplatPath: true,    // prepares for v7
         }}
       >
-        <AnimatedRoutes />
+        {/* Suspense OUTSIDE AnimatePresence = better performance */}
+        <Suspense fallback={
+          <div className="p-20 text-center text-primary">
+            Loading...
+          </div>
+        }>
+          <AnimatedRoutes />
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
