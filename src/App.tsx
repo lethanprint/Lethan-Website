@@ -4,18 +4,21 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { Suspense, lazy } from "react";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Designing from "./pages/services/Designing";
-import Printing from "./pages/services/Printing";
-import Branding from "./pages/services/Branding";
-import Packaging from "./pages/services/Packaging";
-import Clients from "./pages/Clients";
-import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
-import Supplies from "./pages/services/Supplies";
+
+// 🔥 Lazy-loaded pages (reduces unused JS)
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Designing = lazy(() => import("./pages/services/Designing"));
+const Printing = lazy(() => import("./pages/services/Printing"));
+const Branding = lazy(() => import("./pages/services/Branding"));
+const Packaging = lazy(() => import("./pages/services/Packaging"));
+const Supplies = lazy(() => import("./pages/services/Supplies"));
+const Clients = lazy(() => import("./pages/Clients"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -33,28 +36,30 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// 🔥 Animated Routes Component
+// 🔥 Animated Routes with Page Transitions + Lazy Loading
 const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+      <Suspense fallback={<div className="p-20 text-center">Loading...</div>}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
 
-        <Route path="/services/designing" element={<PageWrapper><Designing /></PageWrapper>} />
-        <Route path="/services/printing" element={<PageWrapper><Printing /></PageWrapper>} />
-        <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
-        <Route path="/services/supplies" element={<PageWrapper><Supplies /></PageWrapper>} />
-        <Route path="/services/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
+          <Route path="/services/designing" element={<PageWrapper><Designing /></PageWrapper>} />
+          <Route path="/services/printing" element={<PageWrapper><Printing /></PageWrapper>} />
+          <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
+          <Route path="/services/supplies" element={<PageWrapper><Supplies /></PageWrapper>} />
+          <Route path="/services/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
 
-        <Route path="/clients" element={<PageWrapper><Clients /></PageWrapper>} />
+          <Route path="/clients" element={<PageWrapper><Clients /></PageWrapper>} />
 
-        {/* Catch-all */}
-        <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-      </Routes>
+          {/* Catch-all */}
+          <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 };
@@ -65,7 +70,8 @@ const App = () => (
       <CustomCursor />
       <Toaster />
       <Sonner />
-     <BrowserRouter
+
+      <BrowserRouter
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true,
