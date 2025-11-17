@@ -1,1 +1,5 @@
+# 1 — Force HTTPS for all traffic
+/*    https://lethanprints.com/:splat    301!
+
+# 2 — SPA fallback
 /*    /index.html   200
